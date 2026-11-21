@@ -1,4 +1,4 @@
-1. Steam Loader – Steam Account & Token Extraction
+## 1. Steam Loader – Steam Account & Token Extraction
    
 The initial reverse engineering of the Steam loader sample in Binary Ninja reveals a dedicated routine (sub_1400f7080) that locates and copies Steam account details. The decompiled High Level IL view clearly shows the malware resolving key account fields and copying their values into local memory. This confirms the loader targets active Steam account data and authentication tokens.
 
@@ -30,7 +30,7 @@ The initial reverse engineering of the Steam loader sample in Binary Ninja revea
 ![steam_loader](images/steam_loader_bn_account.png)
 
 
-2. Steam Loader – Two-Factor Authentication & SMS Challenge Logic
+## 2. Steam Loader – Two-Factor Authentication & SMS Challenge Logic
 
 The static analysis of the Steam loader sample in Binary Ninja reveals a routine (sub_1400dde70) handling Steam two-factor authentication requests. The decompiled High Level IL view shows the function building an access token parameter and targeting an authenticator removal API endpoint. This confirms the loader interacts with Steam 2FA flows and processes SMS challenge or MaFile data.
 
@@ -59,7 +59,7 @@ The static analysis of the Steam loader sample in Binary Ninja reveals a routine
 ![steam_loader_bn_2fa](images/steam_loader_bn_2fa.png)
 
 
-3. Steam Loader – RSA Key Retrieval & Login Payload Construction
+## 3. Steam Loader – RSA Key Retrieval & Login Payload Construction
 
 The static analysis of the Steam loader sample in Binary Ninja reveals a routine (sub_1400de080) that requests an RSA public key and builds a credential login payload. The decompiled High Level IL view shows the function parsing response fields and assembling URL-encoded authentication parameters.
 
@@ -88,7 +88,7 @@ The static analysis of the Steam loader sample in Binary Ninja reveals a routine
 ![steam_loader_bn_rsa_login](images/steam_loader_bn_rsa_login.png)
 
 
-4. Steam Loader – SQLite & Account Management Memory Strings
+## 4. Steam Loader – SQLite & Account Management Memory Strings
 
 Dynamic memory inspection of the Steam loader sample in Process Hacker reveals embedded SQLite routines and Windows account management APIs in process memory. The string scan highlights database handling alongside account enumeration and modification functions.
 
@@ -122,7 +122,7 @@ Dynamic memory inspection of the Steam loader sample in Process Hacker reveals e
 ![steam_loader_ph_sqlite](images/steam_loader_ph_sqlite_accounts.png)
 
 
-5. Steam Loader – Decoy C2 Domain Strings in Memory
+## 5. Steam Loader – Decoy C2 Domain Strings in Memory
 
 Dynamic memory inspection of the Steam loader sample in Process Hacker reveals a large list of domain names present in process memory. Rather than acting as confirmed C2 infrastructure, these entries serve as noise or decoy strings that can mislead analysts during string scans.
 
